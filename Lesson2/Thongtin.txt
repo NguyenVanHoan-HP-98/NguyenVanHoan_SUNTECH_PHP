@@ -1,0 +1,8 @@
+1 Lesson 02
+
+* Funcction
+ Khai báo : 
+ Function tenFunction ([$para 1],...)
+ {
+
+ }
