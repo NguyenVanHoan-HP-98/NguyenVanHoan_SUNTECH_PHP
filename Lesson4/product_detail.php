@@ -16,9 +16,7 @@ if(isset($_GET['id']))
     echo "<p> Giá sản phẩm là :". $productDetail['price']."</p>";
 }
 else{
-    echo "Chua có id";
+    header('location:produc_list.php');
 }
-
-
 
 ?>
