@@ -1,0 +1,20 @@
+* session 
+- là 1 biến global dùng để chuyền dữ liệu qua qua các trang 
+* Cách dùng . 
+- khởi tạo : session_start();
+note : Luôn luôn nằm ở đầu trang.
+
+- Tạo ra 1 biến session 
+  $_SESSION['tên biến']= value;
+
+- cách hủy 1 session
+  unset($_SESSION['ten session'])
+  session_destroy(); hủy tất cả các session
+
+
+- Form trong php
+  $_POST
+  hàm chuyển trang . heard('location: form.php')
+  
+
+- Bài tập tạo chức năng đăng nhập đăng xuất.
