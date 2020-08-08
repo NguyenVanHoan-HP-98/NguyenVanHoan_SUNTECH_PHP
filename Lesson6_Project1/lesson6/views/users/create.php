@@ -11,7 +11,7 @@
 	    	</a>
 	    </div>
 	    
-    	<form action="index.php?module=user&action=create" method="post" >
+    	<form action="index.php?module=user&action=create" method="post" enctype="multipart/form-data" >
 	        <?php require_once './views/users/form.php'; ?>
 	    </form>
 </div>

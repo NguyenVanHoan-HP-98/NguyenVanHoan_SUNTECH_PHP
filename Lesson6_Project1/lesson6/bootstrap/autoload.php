@@ -1,4 +1,11 @@
 <?php
+	if(!isset($_SESSION['user-login'])){
+		header('location: http://localhost/NguyenVanHoan_SUNTECH_PHP/Lesson6_Project1/login.php');
+
+	}
+	
+	
+	
 	$moduleName = $_GET['module'] ?? 'dashboard';
 	$actionName = $_GET['action'] ?? '';
 
