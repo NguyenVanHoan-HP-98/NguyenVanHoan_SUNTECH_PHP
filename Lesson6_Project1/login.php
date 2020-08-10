@@ -24,15 +24,57 @@
 
 <body>
     <?php
-        if(isset($_POST['btn-login'])){
-            if($_POST['email'] =='admin' && $_POST['password']=='admin')
-            {
-                $_SESSION['user-login']=[
-                    'username' => 'Admin',
-                ];
-                header('location: http://localhost/NguyenVanHoan_SUNTECH_PHP/Lesson6_Project1/lesson6/');
-            }
+      $connect = mysqli_connect('localhost','root','','phpclass15');
+      if(mysqli_connect_error())
+      {
+        echo 'kết nối thất bại';
+      }
+      else
+      {
+        $sql = 'SELECT *FROM users';
+        $query = mysqli_query($connect,$sql);
+        $totalUser = mysqli_num_rows($query);
+
+
+        $users = [];
+        while($row = mysqli_fetch_object($query))
+        {
+          array_push($users,$row);
         }
+
+        echo '<table>';
+          echo '<pre>';
+          print_r($users);
+          echo '</pre>';
+
+          echo '<tr>';
+          echo '  <td>FullName</td>';
+          echo '  <td>Email</td>';
+          echo '  <td>Phone</td>';
+          echo '  <td>Adress</td>';
+          echo '</tr>';
+          
+          foreach($users as $user)
+          {
+            echo '<tr>';
+            echo '  <td>'.$user->fullname.'</td>';
+            echo '  <td>'.$user->email.'</td>';
+            echo '  <td>'.$user->phone.'</td>';
+            echo '  <td>'.$user->address.'</td>';
+            echo '</tr>';
+          }
+          
+        echo '</table>';
+      }
+        // if(isset($_POST['btn-login'])){
+        //     if($_POST['email'] =='admin' && $_POST['password']=='admin')
+        //     {
+        //         $_SESSION['user-login']=[
+        //             'username' => 'Admin',
+        //         ];
+        //         header('location: http://localhost/NguyenVanHoan_SUNTECH_PHP/Lesson6_Project1/lesson6/');
+        //     }
+        // }
 
 
     ?>

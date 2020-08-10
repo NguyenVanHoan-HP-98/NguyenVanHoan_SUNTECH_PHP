@@ -1,0 +1,91 @@
+mysql_query($connect, $query); Thực hiện câu lệnh truy vấn
+mysqli_num_rows(); : Trả về tổng số lượng bản ghi thơ câu lệnh MYSQL
+mysqli_fetch_object : Trả về obj
+
+
+$sql = 'SELECT *FROM users';
+        $query = mysqli_query($connect,$sql);
+        $totalUser = mysqli_num_rows($query);
+
+        $obj = mysqli_fetch_object($query);
+        $assoc = mysqli_fetch_assoc($query);
+        $aray = mysqli_fetch_array($query);
+        $all = mysqli_fetch_all($query);
+        
+
+
+        echo '<pre>';
+        //print_r($query);
+        //print_r($totalUser);
+        print_r($obj);
+        print_r($assoc);
+        print_r($aray);
+        print_r($all);
+        echo '</pre>';
+
+
+
+stdClass Object
+(
+    [id] => 1
+    [fullname] => Nguyễn Văn Hoan
+    [email] => Hoan68651@st.vimaru.edu.vn
+    [password] => md5(a
+    [phone] => 03166695560
+    [age] => 22
+    [address] => HP
+    [gender] => 0
+    [publish] => 1
+    [create_at] => 2020-08-10 23:29:29
+)
+Array
+(
+    [id] => 4
+    [fullname] => Nguyễn Văn A
+    [email] => Hoan68651@st.vimaru.edu.vn
+    [password] => md5(a
+    [phone] => 03166695560
+    [age] => 22
+    [address] => HP
+    [gender] => 0
+    [publish] => 1
+    [create_at] => 2020-08-10 23:29:29
+)
+Array
+(
+    [0] => 5
+    [id] => 5
+    [1] => Nguyễn Văn B
+    [fullname] => Nguyễn Văn B
+    [2] => Hoan68651@st.vimaru.edu.vn
+    [email] => Hoan68651@st.vimaru.edu.vn
+    [3] => md5(a
+    [password] => md5(a
+    [4] => 03166695560
+    [phone] => 03166695560
+    [5] => 22
+    [age] => 22
+    [6] => HP
+    [address] => HP
+    [7] => 0
+    [gender] => 0
+    [8] => 1
+    [publish] => 1
+    [9] => 2020-08-10 23:29:29
+    [create_at] => 2020-08-10 23:29:29
+)
+Array
+(
+)
+
+
+Lấy kết quả đối với obj
+foreach($users as $user)
+          {
+            echo '<tr>';
+            echo '  <td>'.$user->fullname.'</td>';
+            echo '  <td>'.$user->email.'</td>';
+            echo '  <td>'.$user->phone.'</td>';
+            echo '  <td>'.$user->address.'</td>';
+            echo '</tr>';
+          }
