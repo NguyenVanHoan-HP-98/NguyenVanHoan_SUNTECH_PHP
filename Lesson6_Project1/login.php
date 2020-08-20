@@ -24,57 +24,78 @@
 
 <body>
     <?php
-      $connect = mysqli_connect('localhost','root','','phpclass15');
-      if(mysqli_connect_error())
-      {
-        echo 'kết nối thất bại';
-      }
-      else
-      {
-        $sql = 'SELECT *FROM users';
-        $query = mysqli_query($connect,$sql);
-        $totalUser = mysqli_num_rows($query);
+      // $connect = mysqli_connect('localhost','root','','phpclass15');
+      // if(mysqli_connect_error())
+      // {
+      //   echo 'kết nối thất bại';
+      // }
+      // else
+      // {
+      //   $sql = 'SELECT *FROM users';
+      //   $query = mysqli_query($connect,$sql);
+      //   $totalUser = mysqli_num_rows($query);
 
 
-        $users = [];
-        while($row = mysqli_fetch_object($query))
-        {
-          array_push($users,$row);
+      //   $users = [];
+      //   while($row = mysqli_fetch_object($query))
+      //   {
+      //     array_push($users,$row);
+      //   }
+
+        // echo '<table>';
+        //   echo '<pre>';
+        //   print_r($users);
+        //   echo '</pre>';
+
+        //   echo '<tr>';
+        //   echo '  <td>FullName</td>';
+        //   echo '  <td>Email</td>';
+        //   echo '  <td>Phone</td>';
+        //   echo '  <td>Adress</td>';
+        //   echo '</tr>';
+          
+        //   foreach($users as $user)
+        //   {
+        //     echo '<tr>';
+        //     echo '  <td>'.$user->fullname.'</td>';
+        //     echo '  <td>'.$user->email.'</td>';
+        //     echo '  <td>'.$user->phone.'</td>';
+        //     echo '  <td>'.$user->address.'</td>';
+        //     echo '</tr>';
+        //   }
+          
+        // echo '</table>';
+      //}
+
+        $erorrMess;
+        $email;
+        $password;
+        if(isset($_POST['btn-login'])){
+            if(($email = $_POST['email']) &&( $password = $_POST['password']))
+            {
+               echo ''.$email;
+               echo ''.$password;
+
+               $conn = mysqli_connect ('localhost','root','','phpclass15');
+
+               $sql = 'SELECT id,email,fullname,phone from users WHERE email ="'.$email.'"AND password ="'.$password.'"';
+               $query = mysqli_query($conn,$sql);
+               if(mysqli_num_rows($query)>0)
+               {
+                  $resul = mysqli_fetch_object($query);
+                  $_SESSION['user-login'] = $resul;
+                  //echo '<pre>';
+                  //print_r($_SESSION['user-login']);
+                  header('location: http://localhost/NguyenVanHoan_SUNTECH_PHP/Lesson6_Project1/lesson6/');
+               }
+               else{
+                 echo 'Dawng Nhap khong thanh cong';
+               }
+            }
+            else{
+              $erorrMess = 'nhap chua dung';
+            }
         }
-
-        echo '<table>';
-          echo '<pre>';
-          print_r($users);
-          echo '</pre>';
-
-          echo '<tr>';
-          echo '  <td>FullName</td>';
-          echo '  <td>Email</td>';
-          echo '  <td>Phone</td>';
-          echo '  <td>Adress</td>';
-          echo '</tr>';
-          
-          foreach($users as $user)
-          {
-            echo '<tr>';
-            echo '  <td>'.$user->fullname.'</td>';
-            echo '  <td>'.$user->email.'</td>';
-            echo '  <td>'.$user->phone.'</td>';
-            echo '  <td>'.$user->address.'</td>';
-            echo '</tr>';
-          }
-          
-        echo '</table>';
-      }
-        // if(isset($_POST['btn-login'])){
-        //     if($_POST['email'] =='admin' && $_POST['password']=='admin')
-        //     {
-        //         $_SESSION['user-login']=[
-        //             'username' => 'Admin',
-        //         ];
-        //         header('location: http://localhost/NguyenVanHoan_SUNTECH_PHP/Lesson6_Project1/lesson6/');
-        //     }
-        // }
 
 
     ?>
@@ -126,6 +147,7 @@
                 <div class="my-3">
                   <button name="btn-login" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" >LOGIN</button>
                 </div>
+                <p><?=$erorrMess ?? ''?> <p>
                 <!-- <div class="mb-2 d-flex">
                   <button type="button" class="btn btn-facebook auth-form-btn flex-grow mr-1">
                     <i class="mdi mdi-facebook mr-2"></i>Facebook

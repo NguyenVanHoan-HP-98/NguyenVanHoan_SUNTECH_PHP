@@ -1,11 +1,3 @@
-<?php
-     if(isset($_GET['id']))
-
-    {
-        $user = $_SESSION['users'][$_GET['id']];
-    }
-
-?>
 
 <div class="form-group row">
   	<label class="col-sm-2 col-form-label">
@@ -80,9 +72,4 @@
     <div class="col-sm-9">
         <input type="password" class="form-control" placeholder="Nhập lại mật khẩu">
     </div>
-</div>
-
-<div class="form-check form-check-flat form-check-primary text-center">
-  	<button type="submit" name="btn-save" class="btn btn-primary mr-2">Lưu lại</button>
-	<button class="btn btn-light">Hủy bỏ</button>
 </div>
