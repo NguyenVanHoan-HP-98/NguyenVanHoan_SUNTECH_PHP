@@ -1,0 +1,31 @@
+* Lập trình hướng đối tượng
+- Class & object
+1. Phạm vi truy cập
+2. Kế thừa.
+ dùng từ khóa extends
+  *ghi đè dữ liệu.
+  chống ghi đè dữ liệu ta dùng từ khóa Parent
+  Hàng số const luôn gán giá trị , truy cập vào hằng Tên Lớp :: tên hằng
+  gọi hàng trong phương thức return self::tên hằng
+ *Thuộc tính tĩnh. Biến được khai báo trong class và kèm theo biến static
+ * Phương thức tĩnh là hàm được khai báo trong class và kèm theo biến static
+        Cách truy cập 
+            bên trong class ta dùng từ khóa self::Thuộc tính
+                                          self::Phương thức
+            bên ngoài class ta dùng  Teenclass::Tên thuộc tính
+                                      Tenclass:: tên phương thức
+*Final 
+- Dùng để chống ghi đè dữ liệu
+- Chống kế thừa
+
+*clone
+- tạo ra 1 đối tượng mới từ đối tượng cũ có sẵn. khi có thay đổi sẽ k làm ảnh hưởng đến đối tượng cũ
+
+*_construct() , _destruct()
+- Hàm khởi tạo, hàm hủy.
+
+*Abstract
+- Một class abstract có phương thức trừu trượng, những class khác kế thức class đó sẽ phải định nghĩa lại những phương thức abstract
+có trong class abstract đó
+*Interface
+- Bản chất của interface là kế thừa, tạo ra các qui định độc lập có thể sử dụng trong bất kỳ class ngoài 

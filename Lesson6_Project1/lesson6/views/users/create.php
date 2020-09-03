@@ -12,6 +12,10 @@
 	    </div>
 	    
     	<form action="index.php?module=user&action=create" method="post" enctype="multipart/form-data" >
-	        <?php require_once './views/users/form.php'; ?>
+			<?php require_once './views/users/form.php'; ?>
+			<div class="form-check form-check-flat form-check-primary text-center">
+			<button type="submit" name="btn-save" class="btn btn-primary mr-2">Lưu lại</button>
+			<button class="btn btn-light">Hủy bỏ</button>
+			</div>
 	    </form>
 </div>
