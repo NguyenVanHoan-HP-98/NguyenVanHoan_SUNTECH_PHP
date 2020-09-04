@@ -1,15 +1,31 @@
 <?php
-    class Student{
-        protected $name = 'Nguyễn Văn A';
-        public $email = 'vanhoan98.hp@gmail.com';
 
-        public function getName()
-        {
-           return $this -> name;
-        }
-    }
+class Student
+{
+	protected $name = 'Nguyễn Văn A';
 
-    $student1 = new Student;
-    echo $student1-> getName();
-    echo $student1-> email;
-?>
+	protected $email = 'aaaa@gmail.com';
+
+	public function getName()
+	{
+		return $this->name . ' at ' . $this->getTime();
+	}
+
+	public function getEmail()
+	{
+		return $this->email;
+	}
+
+	protected function getTime()
+	{
+		return date('Y-m-d h:s', time());
+	}
+}
+
+$objStudent1 = new Student;
+
+echo $objStudent1->getName();
+
+echo '<br/>';
+
+echo $objStudent1->getEmail();
