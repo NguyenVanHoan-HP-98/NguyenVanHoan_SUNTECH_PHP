@@ -1,7 +1,12 @@
 <?php
-    echo '<pre>';
-    print_r($categories);
-    echo '</pre>';
+    if($getcategories)
+    {
+        echo '<pre>';
+        print_r($getcategories);
+        echo '</pre>';
+    }
 
-    echo $pageTitle;
+
+    echo $kq;
+
 ?>

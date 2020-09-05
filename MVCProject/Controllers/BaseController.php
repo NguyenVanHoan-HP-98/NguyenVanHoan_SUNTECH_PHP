@@ -5,6 +5,7 @@
 
         const VIEW_FOLDER_NAME = 'Views';
         const MODEL_FOLDER_NAME = 'Models';
+        
         protected function view($viewPart , array $data = [])
         {
             foreach($data as $key => $value)

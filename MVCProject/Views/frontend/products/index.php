@@ -1,6 +1,12 @@
 <h1><?= $pagetitle?></h1>
-<h2><?php
-    echo '<pre>';
-    print_r($productfind);
-    echo '</pre>';
-?></h2>
+<?php
+    if($getproduct)
+    {
+        echo '<pre>';
+        print_r($getproduct);
+        echo '</pre>'; 
+    }
+
+
+    echo $kq;
+?>
